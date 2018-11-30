@@ -3,8 +3,8 @@ namespace Questionnaire.Domain.Entities
 {
     public class Form : BaseEntity
     {
-        public string Title { get; set; }
+        public string Title { get; }
 
-        public string Description { get; set; }
+        public string Description { get; }
     }
 }
