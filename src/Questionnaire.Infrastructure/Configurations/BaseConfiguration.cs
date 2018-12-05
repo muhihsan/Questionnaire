@@ -9,13 +9,10 @@ namespace Questionnaire.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<TEntity> builder)
         {
-            builder.HasKey(p => p.Id);
+            builder.HasKey("_id");
 
-            builder.Property(p => p.Id)
-                .ValueGeneratedOnAdd();
-
-            builder.Property(p => p.CreatedDate)
-                .HasDefaultValue("GETDATE()");
+            builder.Property<string>("_id")
+                .HasColumnName(nameof(BaseEntity.Id));
         }
     }
 }

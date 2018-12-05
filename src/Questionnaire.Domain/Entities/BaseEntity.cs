@@ -1,13 +1,9 @@
-﻿using System;
-
-namespace Questionnaire.Domain.Entities
+﻿namespace Questionnaire.Domain.Entities
 {
     public class BaseEntity
     {
-        public string Id { get; }
+        private string _id;
 
-        public DateTimeOffset CreatedDate { get; }
-
-        public DateTimeOffset UpdatedDate { get; }
+        public string Id { get => _id; }
     }
 }

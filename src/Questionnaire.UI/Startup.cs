@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Questionnaire.Infrastructure;
 
 namespace Questionnaire.UI
 {
@@ -27,6 +28,9 @@ namespace Questionnaire.UI
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddDbContext<QuestionnaireDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("QuestionnaireDatabase")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
